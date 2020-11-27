@@ -1,6 +1,6 @@
 <template>
   <view>
-    billList
+    <keyboard></keyboard>
   </view>
 </template>
 
