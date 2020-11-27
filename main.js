@@ -4,6 +4,7 @@ import store from '@/common/store'
 import request from '@/common/request'
 import { BASE_URL } from './env'
 import share from '@/common/mixins/share'
+import '@/common/router'
 import { RouterMount } from 'uni-simple-router'
 
 Vue.mixin(share)

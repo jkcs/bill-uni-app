@@ -9,10 +9,7 @@
       "title": "列表",
       "aliasPath": "/",
       "style": {
-        "navigationBarTitleText": "",
-        "navigationBarTextStyle": "white",
-        "enablePullDownRefresh": true,
-        "navigationStyle": "custom"
+        "enablePullDownRefresh": true
       },
       "meta": {
         "auth": false,
@@ -23,7 +20,6 @@
       "path": "pages/index/charts",
       "name": "indexCharts",
       "style": {
-        "navigationBarTitleText": "购物车",
         "enablePullDownRefresh": true
       },
       "meta": {
@@ -35,8 +31,6 @@
       "path": "pages/index/user",
       "name": "indexUser",
       "style": {
-        "navigationBarTitleText": "我的",
-        "navigationStyle": "custom",
         "enablePullDownRefresh": true
       },
       "meta": {
@@ -51,7 +45,7 @@
     "navigationBarTitleText": "",
     "navigationBarBackgroundColor": "#fff",
     "backgroundColor": "#fff",
-    "navigationStyle": "default",
+    "navigationStyle": "custom",
     // 默认是default，即带有原生导航栏。custom,取消导航栏。
     "SplitLineStyles": {
       "color": "#ccc",
@@ -60,9 +54,9 @@
   },
   // 默认底部导航栏
   "tabBar": {
-    "color": "#ccc",
-    "selectedColor": "#ccc",
-    "backgroundColor": "#fc6",
+    "color": "#454545",
+    "selectedColor": "#454545",
+    "backgroundColor": "#fff",
     "borderStyle": "black",
     "list": [
       {
