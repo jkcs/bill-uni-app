@@ -1,0 +1,9 @@
+{
+	"dependencies": {
+		"uni-read-pages": "^1.0.5",
+		"uni-simple-router": "1.5.2"
+	},
+	"devDependencies": {
+		"@dcloudio/types": "^2.0.18"
+	}
+}

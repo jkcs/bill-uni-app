@@ -1,0 +1,88 @@
+{
+  "easycom": {
+    "autoscan": true
+  },
+  "pages": [
+    {
+      "path": "pages/index/list",
+      "name": "indexList",
+      "title": "列表",
+      "aliasPath": "/",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true,
+        "navigationStyle": "custom"
+      },
+      "meta": {
+        "auth": false,
+        "title": "首页"
+      }
+    },
+    {
+      "path": "pages/index/charts",
+      "name": "indexCharts",
+      "style": {
+        "navigationBarTitleText": "购物车",
+        "enablePullDownRefresh": true
+      },
+      "meta": {
+        "auth": false,
+        "title": "图表统计"
+      }
+    },
+    {
+      "path": "pages/index/user",
+      "name": "indexUser",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true
+      },
+      "meta": {
+        "auth": true,
+        "title": "我的"
+      }
+    }
+  ],
+  // 默认导航栏样式
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#fff",
+    "navigationStyle": "default",
+    // 默认是default，即带有原生导航栏。custom,取消导航栏。
+    "SplitLineStyles": {
+      "color": "#ccc",
+      "height": "1px"
+    }
+  },
+  // 默认底部导航栏
+  "tabBar": {
+    "color": "#ccc",
+    "selectedColor": "#ccc",
+    "backgroundColor": "#fc6",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/list",
+        "text": "列表",
+        "iconPath": "/static/images/tabBar/list.png",
+        "selectedIconPath": "static/images/tabBar/list-active.png"
+      },
+      {
+        "pagePath": "pages/index/charts",
+        "text": "图表",
+        "iconPath": "static/images/tabBar/charts.png",
+        "selectedIconPath": "static/images/tabBar/charts-active.png"
+      },
+      {
+        "pagePath": "pages/index/user",
+        "text": "我的",
+        "iconPath": "static/images/tabBar/user.png",
+        "selectedIconPath": "static/images/tabBar/user-active.png"
+      }
+    ]
+  }
+}
