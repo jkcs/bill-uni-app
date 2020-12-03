@@ -2,7 +2,7 @@
   <view :class="bem()">
     <view :class="bem('header')">
       <view :class="bem('header-remarks')"><image class="icon icon-sm" model="widthFix" src="/static/icons/keyboard/remarks.png"/>备注：</view>
-      <input :class="bem('header-inp')" type="text" placeholder="点击填写备注"/>
+      <input v-model="remarks" :class="bem('header-inp')" maxlength="20" type="text" placeholder="点击填写备注"/>
 <!--      <view :class="bem('header-de')">0.00</view>-->
       <view :class="bem('header-de')">{{formulaList | filterFormulaList}}</view>
     </view>
@@ -11,7 +11,11 @@
       <view @click.stop="handleClickKey(8)" :class="bem('content-key')">8</view>
       <view @click.stop="handleClickKey(9)" :class="bem('content-key')">9</view>
       <view @click.stop="handleClickKey('dataTimePick')" :class="bem('content-key')">
-        <image v-if="todayList[0]" class="icon icon-sm" model="widthFix" src="/static/icons/keyboard/date.png"/>{{todayList[1]}}
+        <!-- <image v-if="todayList[0]" class="icon icon-sm" model="widthFix" src="/static/icons/keyboard/date.png"/>{{todayList[1]}} -->
+        <picker mode="date" :value="date" :start="startDate" @change="bindDateChange">
+			    <image v-if="todayList[0]" class="icon icon-sm" model="widthFix" src="/static/icons/keyboard/date.png"/>{{todayList[1]}}
+          <!-- <view class="uni-input">{{date}}</view> -->
+        </picker>
       </view>
       <view @click.stop="handleClickKey(4)" :class="bem('content-key')">4</view>
       <view @click.stop="handleClickKey(5)" :class="bem('content-key')">5</view>
@@ -34,6 +38,7 @@
   import { dateFormat, getNow, isToday } from "@/common/utils/dateUtils"
 
   const bem = createNameSpace('keyboard')
+  const nowDate = dateFormat(getNow(), '{y}-{m}-{d}')
   export default {
     props: {
       maxLength: {
@@ -46,7 +51,15 @@
       },
       date: {
         type: String,
-        default: dateFormat(getNow(), '{y}-{m}-{d}')
+        default: nowDate
+      },
+      remark: {
+        type: String,
+        default: ''
+      },
+      startDate: {
+        type: String,
+        default: nowDate
       }
     },
     data() {
@@ -62,6 +75,14 @@
     computed: {
       todayList() {
         return isToday(this.date)
+      },
+      remarks: {
+        get() {
+          return this.remark;
+        },
+        set(val) {
+          this.$emit('update:remark', val)
+        }
       }
     },
     filters: {
@@ -74,6 +95,10 @@
     },
     methods: {
       bem,
+      bindDateChange(e) {
+        console.log(e)
+        this.$emit('update:date', e.target.value)
+      },
       handleClickKey(key) {
         const len = this.formulaList.length
         if (typeof key === "number") {
@@ -150,6 +175,10 @@
         if (len === 1 && Number(this.formulaList[len - 1]) === 0) {
           return
         }
+        if (len === 1 && String(this.formulaList[len - 1]).length === 1) {
+          this.formulaList = [0]
+          return
+        }
         if (Number(this.formulaList[len - 1]) === 0 || this.formulaList[len - 1].length === 1) {
           this.formulaList = this.formulaList.slice(0, -1)
           return
@@ -165,6 +194,7 @@
           this.formulaList = [this.sumNumber(num1, num2, sym === '+')]
         }
         const [amount] = this.formulaList
+        if (Number(amount) === 0) return
         console.log(amount)
       }
     }

@@ -1,11 +1,18 @@
 <template>
   <view>
-    <keyboard></keyboard>
+    <keyboard :date.sync="date" :remark.sync="remark"></keyboard>
   </view>
 </template>
 
 <script>
-  export default {}
+  export default {
+    data() {
+      return {
+        date: undefined,
+        remark: undefined
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
