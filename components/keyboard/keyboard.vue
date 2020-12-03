@@ -11,10 +11,8 @@
       <view @click.stop="handleClickKey(8)" :class="bem('content-key')">8</view>
       <view @click.stop="handleClickKey(9)" :class="bem('content-key')">9</view>
       <view @click.stop="handleClickKey('dataTimePick')" :class="bem('content-key')">
-        <!-- <image v-if="todayList[0]" class="icon icon-sm" model="widthFix" src="/static/icons/keyboard/date.png"/>{{todayList[1]}} -->
         <picker mode="date" :value="date" :start="startDate" @change="bindDateChange">
 			    <image v-if="todayList[0]" class="icon icon-sm" model="widthFix" src="/static/icons/keyboard/date.png"/>{{todayList[1]}}
-          <!-- <view class="uni-input">{{date}}</view> -->
         </picker>
       </view>
       <view @click.stop="handleClickKey(4)" :class="bem('content-key')">4</view>
