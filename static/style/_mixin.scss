@@ -17,3 +17,7 @@
 	}
 }
 
+@mixin main-bg {
+	background-color: $main-color-deep;
+	background-image: linear-gradient(140deg, $main-color 60%, $second-color 100%);
+}
